@@ -14,11 +14,18 @@ public class FindCarePage{
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    @FindBy(linkText = "Find a Doctor")
+    public WebElement findDoctorButton;
+
+    public void clickFindDoctorButton() {
+        findDoctorButton.click();
+    }
+
     @FindBy(xpath = "//span[.='Search in-network providers, facilities, and drugs']")
     public WebElement findCarePageTitle;
 
     @FindBy(xpath = "//input[@aria-labelledby='search-label']")
-    public  WebElement searchInput;
+    public WebElement searchInput;
 
     @FindBy(xpath = "//a[@class='h-H1cLlKOxb6RDzB78XkAqp o-container']")
     public List<WebElement> providersList;
@@ -36,26 +43,22 @@ public class FindCarePage{
     public WebElement title;
 
 
-    public void searchForPrimaryCare(){
+    public void searchForPrimaryCare() {
         searchInput.sendKeys("Primary care" + Keys.ENTER);
     }
 
-    public void searchForHospital(){
+    public void searchForHospital() {
         searchInput.sendKeys("Hospital" + Keys.ENTER);
 
     }
 
-    public void searchForSpecificCondition(){
+    public void searchForSpecificCondition() {
         searchInput.sendKeys("Drugs" + Keys.ENTER);
     }
 
-    public void searchForInvalidKeyword(){
+    public void searchForInvalidKeyword() {
         searchInput.sendKeys("Pizza" + Keys.ENTER);
     }
-
-
-
-
 
 
 }

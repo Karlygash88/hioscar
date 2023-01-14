@@ -12,7 +12,6 @@ Feature: Find Care feature
     Then User clicks on continue button
     Then User should land on find care page
 
-    @wip
   Scenario: User can search for primary care
     Given User searches for primary care
     Then Primary care providers should be listed

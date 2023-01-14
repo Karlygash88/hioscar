@@ -1,8 +1,6 @@
 package com.hioscar.step_definitions;
 
-import com.hioscar.pages.CareOptionsPage;
 import com.hioscar.pages.FindCarePage;
-import com.hioscar.pages.OscarHomePage;
 import com.hioscar.utilities.ConfigReader;
 import com.hioscar.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -10,12 +8,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class FindDoctorStepDefinitions {
+public class FindCareStepDefinitions {
+
 
     FindCarePage findCarePage = new FindCarePage();
-    CareOptionsPage careOptionsPage = new CareOptionsPage();
-
-    OscarHomePage homePage = new OscarHomePage();
 
     @Given("User is on the home page")
     public void user_is_on_the_home_page() {
@@ -23,40 +19,10 @@ public class FindDoctorStepDefinitions {
     }
 
     @When("User clicks Find Doctor button")
-    public void user_clicks_find_doctor_button() {
-        homePage.clickFindDoctorButton();
+    public void user_clicks_find_doctor_button() {findCarePage.clickFindDoctorButton();
     }
 
-    @Then("User clicks on Search Network button")
-    public void user_clicks_on_search_network_button() {
-        careOptionsPage.click(careOptionsPage.searchNetworkButton);
-    }
 
-    @Then("User selects coverage year")
-    public void user_selects_coverage_year() {
-        careOptionsPage.click(careOptionsPage.coverageYearDropdown);
-        careOptionsPage.click(careOptionsPage.coverageYearOption);
-    }
-
-    @Then("User selects coverage access")
-    public void user_selects_coverage_access() {
-        careOptionsPage.click(careOptionsPage.coverageAccessDropdown);
-        careOptionsPage.selectOptionFromDropdown(careOptionsPage.coverageAccessOptions, 1);
-
-    }
-
-    @Then("User selects coverage area")
-    public void user_selects_coverage_area() {
-        careOptionsPage.click(careOptionsPage.coverageAreaDropdown);
-        careOptionsPage.selectOptionFromDropdown(careOptionsPage.coverageAreaOptions, 1);
-
-    }
-
-    @Then("User clicks on continue button")
-    public void user_clicks_on_continue_button() {
-        careOptionsPage.click(careOptionsPage.continueButton);
-
-    }
 
     @Then("User should land on find care page")
     public void user_should_land_on_find_care_page() {
